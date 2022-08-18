@@ -1,0 +1,12 @@
+//Scripts Gerais
+$(MUST_INCLUDE='lib://Auditoria_covid/3.Include/Main.qvs');
+$(MUST_INCLUDE='lib://Auditoria_covid/3.Include/Variaveis.qvs');
+
+//Scripts QLIK SENSE
+$(MUST_INCLUDE='lib://Auditoria_covid/3.Include/1.1Extracao_Covid.QVS');
+$(MUST_INCLUDE='lib://Auditoria_covid/3.Include/1.2Tranformacao_Covid.QVS');
+$(MUST_INCLUDE='lib://Auditoria_covid/3.Include/1.3Carregamento_Covid.QVS');
+
+
+
+

@@ -1,0 +1,7 @@
+// Pasta de origem
+Set vPastaOrigem 		 = 'lib://Auditoria_covid/5.Import/';
+
+// Script de ETL
+Set vPastaExtracao  	 = 'lib://Auditoria_covid/2.QVD/1.Extract/';
+Set vPastaTransformacao  = 'lib://Auditoria_covid/2.QVD/2.Transform/';
+Set vPastCarregamento    = 'lib://Auditoria_covid/2.QVD/3.Load/';

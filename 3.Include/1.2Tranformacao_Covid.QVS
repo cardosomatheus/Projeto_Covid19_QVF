@@ -1,0 +1,35 @@
+﻿Set vNomeTabela 		= 'Projeto_Covid19';
+Set vNomeTabelaQVD 		= 'Projeto_Covid19.qvd';
+
+
+//  As colunas que estão como comentarios não serão utilizadas no dashboard
+
+$(vNomeTabela):
+
+LOAD
+   ID 					as ID_Covid,
+// Histórico,
+// "Ref. Contratação",
+// "Contrato nº",
+    Modalidade          as "Modelo da Contratacao",
+//  P.A.,
+    Objeto              as "Material Requisitado",
+    Data				as "Data da Contratacao",	
+    Ano                 as "Ano da contratacao",
+    NE ,
+//	P.A.1,
+	if(Left(P.A.1, 1) ='6', Left(P.A.1, 4) & '.' & Mid(P.A.1,5,4) & '/' & Mid(P.A.1,9,7)& '-' & Right(P.A.1,1), P.A.1) as P.A.1,
+//  "ID Órg",
+    Órgão,
+//  "ID UN.",
+    Unidade,
+    "CNPJ/CPF",
+    Contratada          as "Empresa Contratante",
+    Tipo                as "tipo Contratante",
+    Empenhado           as "Valor Empenhado", 
+    Liquidado			as "Valor Liquidado",	
+    Pago				as "Valor Pago"
+FROM [$(vPastaExtracao)$(vNomeTabelaQVD)](qvd);
+
+Store $(vNomeTabela) into [$(vPastaTransformacao)$(vNomeTabelaQVD)](qvd);
+Drop Table;

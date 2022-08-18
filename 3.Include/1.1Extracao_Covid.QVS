@@ -1,0 +1,58 @@
+﻿Set vNomeTabela 		= 'Covid19Auditoria';
+Set vNomeTabelaOriginal = 'Projeto_Covid19.xlsx';
+Set vNomeTabelaQVD 		= 'Projeto_Covid19.qvd';
+
+$(vNomeTabela):
+LOAD
+    ID,
+    Histórico,
+    "Ref. Contratação",
+    "Contrato nº",
+    Modalidade,
+    P.A.,
+    Objeto,
+    Data,
+    Ano,
+    NE,
+    P.A.1,
+    "ID Órg",
+    Órgão,
+    "ID UN.",
+    Unidade,
+    "CNPJ/CPF",
+    Contratada,
+    Tipo,
+    Empenhado,
+    Liquidado,
+    Pago
+FROM [$(vPastaOrigem)$(vNomeTabelaOriginal)]
+(ooxml, embedded labels, table is [Covid (i)]);
+
+LOAD
+    ID,
+    Histórico,
+    "Ref. Contratação",
+    "Contrato nº",
+    Modalidade,
+    P.A.,
+    Objeto,
+    Data,
+    Ano,
+    NE,
+    P.A.1,
+    "ID Órg",
+    Órgão,
+    "ID UN.",
+    Unidade,
+    "CNPJ/CPF",
+    Contratada,
+    Tipo,
+    Empenhado,
+    Liquidado,
+    Pago
+FROM [$(vPastaOrigem)$(vNomeTabelaOriginal)]
+(ooxml, embedded labels, table is [Covid (p)]);
+
+
+Store $(vNomeTabela) Into [$(vPastaExtracao)$(vNomeTabelaQVD)](QVD);
+Drop Table

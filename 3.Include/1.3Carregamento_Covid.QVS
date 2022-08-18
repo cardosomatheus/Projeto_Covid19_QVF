@@ -1,0 +1,9 @@
+Set vNomeTabela 		= 'Projeto_Covid19';
+Set vNomeTabelaQVD 		= 'Projeto_Covid19.QVD';
+
+$(vNomeTabela):
+LOAD
+   *
+FROM [$(vPastaTransformacao)$(vNomeTabelaQVD)](qvd);
+Store $(vNomeTabela) into [$(vPastCarregamento)$(vNomeTabelaQVD)](qvd);
+
